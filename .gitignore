@@ -1,0 +1,10 @@
+#compiled binaries
+*.exe
+*.obj
+
+#IDE & editor settings
+.vscode/
+
+#system generated files
+.DS_Store
+Thumbs_db
