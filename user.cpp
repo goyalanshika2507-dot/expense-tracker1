@@ -1,17 +1,19 @@
-#include "User.h"
+#include "user.h"
 
 User::User()
 {
     userId = "";
     username = "";
     passwordHash = "";
+    salt = "";
 }
 
-User::User(string userId, string username, string passwordHash)
+User::User(string userId, string username, string passwordHash, string salt)
 {
     this->userId = userId;
     this->username = username;
     this->passwordHash = passwordHash;
+    this->salt = salt;
 }
 
 string User::getUserId() const
@@ -22,6 +24,16 @@ string User::getUserId() const
 string User::getUsername() const
 {
     return username;
+}
+
+string User::getPasswordHash() const
+{
+    return passwordHash;
+}
+
+string User::getSalt() const
+{
+    return salt;
 }
 
 void User::setUserId(string userId)
@@ -37,6 +49,11 @@ void User::setUsername(string username)
 void User::setPasswordHash(string passwordHash)
 {
     this->passwordHash = passwordHash;
+}
+
+void User::setSalt(string salt)
+{
+    this->salt = salt;
 }
 
 bool User::checkPasswordHash(string passwordHash) const

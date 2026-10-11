@@ -14,8 +14,13 @@ private:
     bool loggedIn;
     vector<User> users;
 
+    string lastError;
+
 public:
     Authentication();
+
+    static string hashPassword(const string& password, const string& salt);
+    static string generateSalt();
 
     bool validatePassword(string password) const;
 
@@ -26,6 +31,9 @@ public:
     void logoutUser();
 
     User getCurrentUser() const;
+    bool isLoggedIn() const;
+    string getLastError() const;
+    void reloadUsers();
 };
 
 #endif

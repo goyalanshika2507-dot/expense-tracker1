@@ -1,10 +1,23 @@
-#compiled binaries
+# Compiled binaries & build trees
+build/
+bin/
 *.exe
 *.obj
+*.o
+*.a
+*.dll
 
-#IDE & editor settings
+# Persistent runtime data
+data/
+data_test/
+!CMakeLists.txt
+
+# IDE & editor settings
 .vscode/
+.idea/
+*.user
 
-#system generated files
+# System generated files
 .DS_Store
 Thumbs_db
+Thumbs.db
