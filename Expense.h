@@ -14,6 +14,13 @@ public:
     Expense(int id, double amt, string d, string c);
 
     void display() override;
+
+    string getCategory() const;
+    void setCategory(const string& c);
+
+    string getType() const override;
+    string getCategoryOrSource() const override;
+    void setCategoryOrSource(const string& val) override;
 };
 
 #endif

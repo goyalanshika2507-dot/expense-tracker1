@@ -14,6 +14,13 @@ public:
     Income(int id, double amt, string d, string s);
 
     void display() override;
+
+    string getSource() const;
+    void setSource(const string& s);
+
+    string getType() const override;
+    string getCategoryOrSource() const override;
+    void setCategoryOrSource(const string& val) override;
 };
 
 #endif
