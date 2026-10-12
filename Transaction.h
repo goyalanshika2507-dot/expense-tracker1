@@ -27,11 +27,13 @@ public:
     // Pure virtual methods for runtime polymorphism
     virtual string getType() const = 0;
     virtual string getCategoryOrSource() const = 0;
+    virtual string getCategory() const { return getCategoryOrSource(); }
 
     // Setters for editing records
     void setAmount(double amt);
     void setDate(const string& d);
     virtual void setCategoryOrSource(const string& val) = 0;
+    virtual void setCategory(const string& val) { setCategoryOrSource(val); }
 };
 
 #endif
