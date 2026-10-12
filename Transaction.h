@@ -18,6 +18,20 @@ public:
     virtual void display();
 
     virtual ~Transaction() = default;
+
+    // Getters
+    int getId() const;
+    double getAmount() const;
+    string getDate() const;
+
+    // Pure virtual methods for runtime polymorphism
+    virtual string getType() const = 0;
+    virtual string getCategoryOrSource() const = 0;
+
+    // Setters for editing records
+    void setAmount(double amt);
+    void setDate(const string& d);
+    virtual void setCategoryOrSource(const string& val) = 0;
 };
 
 #endif

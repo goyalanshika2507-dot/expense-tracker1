@@ -14,3 +14,28 @@ void Income::display()
 
     cout << "Income Source: " << source << endl;
 }
+
+string Income::getSource() const
+{
+    return source;
+}
+
+void Income::setSource(const string& s)
+{
+    source = s;
+}
+
+string Income::getType() const
+{
+    return "Income";
+}
+
+string Income::getCategoryOrSource() const
+{
+    return source;
+}
+
+void Income::setCategoryOrSource(const string& val)
+{
+    source = val;
+}
