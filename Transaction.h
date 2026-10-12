@@ -1,45 +1,37 @@
 #ifndef TRANSACTION_H
 #define TRANSACTION_H
 
-#include <string>
 #include <iostream>
-#include <iomanip>
-
+#include <string>
 using namespace std;
 
-class Transaction {
+class Transaction
+{
 protected:
-    int transactionId;
-    string username;
+    int transactionID;
     double amount;
-    string category;
-    string date; // Format: YYYY-MM-DD
-    string type; // "Income" or "Expense"
+    string date;
 
 public:
-    Transaction(int id, string user, double amt, string cat, string dt, string t);
-    virtual ~Transaction();
+    Transaction(int id, double amt, string d);
 
-    string getUsername() const;
-    double getAmount() const;
-    string getCategory() const;
-    string getDate() const;
-    string getType() const;
+    virtual void display();
+
+    virtual ~Transaction() = default;
+
+    // Getters
     int getId() const;
+    double getAmount() const;
+    string getDate() const;
 
-    virtual void displayDetails() const;
-};
+    // Pure virtual methods for runtime polymorphism
+    virtual string getType() const = 0;
+    virtual string getCategoryOrSource() const = 0;
 
-class Income : public Transaction {
-public:
-    Income(int id, string user, double amt, string cat, string dt);
-    void displayDetails() const override;
-};
-
-class Expense : public Transaction {
-public:
-    Expense(int id, string user, double amt, string cat, string dt);
-    void displayDetails() const override;
+    // Setters for editing records
+    void setAmount(double amt);
+    void setDate(const string& d);
+    virtual void setCategoryOrSource(const string& val) = 0;
 };
 
 #endif
